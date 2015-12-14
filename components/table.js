@@ -1,9 +1,8 @@
-let test = () => {
-  document.write('blah');
-  console.log('blah');
-  return 10
-}
-const object = {a: 5};
-let {a} = object;
+import React from 'react';
 
-module.exports = (test()*a);
+export default React.createClass({
+  render() {
+    return React.DOM.h1({className: 'header'}, this.props.name);
+  }
+});
+
