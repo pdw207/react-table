@@ -1,8 +1,9 @@
 import React from 'react';
 
-export default React.createClass({
+class Table extends React.Component {
   render() {
-    return React.DOM.h1({className: 'header'}, this.props.name);
+    return React.DOM.h1({className: 'header', ref: 'table'}, this.props.name);
   }
-});
+};
 
+export default Table;

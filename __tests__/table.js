@@ -1,30 +1,24 @@
-import {expect} from 'chai';
-import React from 'react/addons';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import TestUtils from 'react-addons-test-utils';
+jest.dontMock('../components/table');
 import Table from '../components/table';
 
+
 describe('table', () => {
-  let {TestUtils}  = React.addons;
-  let findByClass = TestUtils.scryRenderedDOMComponentsWithClass;
 
-  jest.autoMockOff();
-
-  beforeEach(() => {
-    reactTable = TestUtils.renderIntoDocument(
-      React.createElement(Table, {name: "test"})
-    )
+  it('Should have name property', () => {
+    let Name = React.createClass({
+      render() {
+        return React.DOM.h1({className: 'header', ref: 'tabe'}, this.props.name)
+      }
+    });
+    let element =  React.createElement(Table, {name: 'test'})
+    var component = TestUtils.renderIntoDocument(element);
+    var node = ReactDOM.findDOMNode(component);
+    expect(node.textContent).toBe('test');
   });
 
-  afterEach(function() {
-    if (Table && Table.isMounted()) {
-      React.unmountComponentAtNode(Table.getDOMNode());
-    }
-   });
-
-  it('Should have heading Office Supplies', () => {
-    expect(true).to.equal(true);
-  });
-
-  jest.autoMockOn();
 });
 
 
