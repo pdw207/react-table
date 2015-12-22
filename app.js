@@ -12,10 +12,10 @@ var DATA = {
     { id: 4, name: 'hush puppies', type: 'southern' }
   ]
 };
+
 ReactDOM.render(
   React.createElement(List, {
-    name: DATA.title,
-    items: DATA.items
+    data: DATA,
   }),
   document.getElementById('content')
 );
